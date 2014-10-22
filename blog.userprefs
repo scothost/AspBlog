@@ -1,0 +1,26 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="iceweasel" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Categories.aspx.cs">
+    <Files>
+      <File FileName="Default.aspx.cs" Line="99" Column="99" />
+      <File FileName="Default.aspx.designer.cs" Line="1" Column="1" />
+      <File FileName="Default.aspx" Line="1" Column="1" />
+      <File FileName="style.css" Line="1" Column="1" />
+      <File FileName="web.config" Line="1" Column="1" />
+      <File FileName="LogIn.aspx" Line="1" Column="1" />
+      <File FileName="functions.js" Line="1" Column="1" />
+      <File FileName="Global.asax" Line="1" Column="1" />
+      <File FileName="Global.asax.cs" Line="1" Column="1" />
+      <File FileName="EditPost.aspx" Line="1" Column="1" />
+      <File FileName="EditPost.aspx.cs" Line="99" Column="99" />
+      <File FileName="EditPost.aspx.designer.cs" Line="1" Column="1" />
+      <File FileName="Categories.aspx" Line="1" Column="1" />
+      <File FileName="Categories.aspx.cs" Line="47" Column="47" />
+      <File FileName="Categories.aspx.designer.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

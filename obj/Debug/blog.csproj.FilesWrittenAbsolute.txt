@@ -1,0 +1,7 @@
+/home/user/blog/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/user/blog/bin/blog.dll.mdb
+/home/user/blog/bin/blog.dll
+/home/user/blog/obj/Debug/blog.dll
+/home/user/blog/obj/Debug/blog.dll.mdb
+/home/user/blog/bin/MySql.Web.dll
+/home/user/blog/bin/MySql.Data.dll

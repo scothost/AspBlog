@@ -1,0 +1,7 @@
+/home/peter/blog/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/peter/blog/bin/blog.dll.mdb
+/home/peter/blog/bin/blog.dll
+/home/peter/blog/obj/Release/blog.dll
+/home/peter/blog/obj/Release/blog.dll.mdb
+/home/peter/blog/bin/MySql.Web.dll
+/home/peter/blog/bin/MySql.Data.dll
