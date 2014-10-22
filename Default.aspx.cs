@@ -93,8 +93,6 @@ namespace blog
 			CategoryAdapter.Fill(Categoryds, "result");
 
 
-
-
 			dbcon.Close();
 			dbcon = null;
 
