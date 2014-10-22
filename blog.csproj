@@ -51,6 +51,7 @@
     <Content Include="functions.js" />
     <Content Include="EditPost.aspx" />
     <Content Include="Categories.aspx" />
+    <Content Include="edit2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

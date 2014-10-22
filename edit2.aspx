@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"   Inherits="blog.EditPost" validateRequest="false"  EnableEventValidation="false" %>
+﻿<%@ Page Language="C#"  Inherits="blog.Default" validateRequest="false"  EnableEventValidation="false" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -78,56 +78,76 @@ function clearText(field)
             <div class="margin_bottom_20"></div>           
             
             <div class="content_section_01">
-            <asp:Repeater runat="server" id="WelcomeControl">
+          <asp:Repeater runat="server" id="WelcomeControl">
  <ItemTemplate>
 <%# Eval("ConfigValue") %>
  </ItemTemplate>
  </asp:Repeater>
 
+  <form method=post runat="server" id = "frmCatFilter" name= "frmCatFilter" >
+ <div id="FilterCategory" style='float:right;'>Filter by Category: 
+ <asp:DropDownList id="CategoryFilterControl" runat="server" DataValueField="CategoryID" DataTextField="CategoryName" 
+       AppendDataBoundItems="False"  nselectedindexchanged="CategoryFilter_SelectedIndexChanged" AutoPostBack="True" />
 
+       </div>
+       </form>
+       <br>
 
+ <!-- FORM for adding a post, initially hidden -->
+	 <div id = "AddPost" style='display:none;'>
+		 <form method=post runat="server" id = "frmAddPost" name= "frmApddPost" action="?action=add">
+		Post Title: <input name = title> Category:
+		<asp:DropDownList id="CategoryControl" runat="server" DataValueField="CategoryID" DataTextField="CategoryName" 
+       AppendDataBoundItems="False"  />
+		  
 
-  <div id ="EditPost" >
-<form id="catFrm" runat="server" method="post"  action='Default.aspx?action=edit'>
-   <asp:Repeater runat="server" id="ContentControl">
- 
+ &nbsp; Add Category: <input type="text" id="CategoryName" name = "CategoryName">
+		<br/>
+		Summary:<textarea id="summary" name = "summary" cols="56" rows="6"></textarea><br/>
+		Content: <textarea id="content" name = "content" cols="64" rows="8"></textarea><br/>
+		<center><input type="submit" name = "btnSubmit" value = "Add This Post"></center>
+ 	</form></div>	<br/>
+	
+
+<!-- Get and display summary of the first 10 posts -->
+ <asp:Repeater runat="server" id="SampleControl">
  <ItemTemplate>
-<b>Post Title</b>: <input name = title value='<%# Eval("PostTitle") %>' >
+		
+    
+    					<table width="100%" border=0><tr class="header-row"><th align="left" class="header-row"><font size="3"> 
+    					<strong><a href=#  style='text-decoration:none;color:black;' OnClick='ToggleContent(<%# Eval("PostID") %>);'>
+    					 <%# Eval("PostTitle") %> &nbsp; Category:<%# Eval("CategoryName") %>&nbsp;
+    					 <font size=1 color=blue><u>[click to toggle ...]</u></font></a></strong>
+    					 </font></th>
+       					 <th class="header-row" align="right">
+							<a href="EditPost.aspx?action=edit&id=<%# Eval("PostID") %>#Edit"
+							onClick='return ToggleEdit(<%# Eval("PostID")%>);'>Edit</a> | <a href=?action=delete&id=<%# Eval("PostID") %>>Delete</a>&nbsp;
+        					<font size="3"> <strong><%# Eval("PostDate").ToString().Substring(0, 10) %>
+       						 </strong></font>        
+       						 </th></tr>
+
+        					<tr><td colspan="2">
+        						<div id = 'summary<%# Eval("PostID") %>'>
+ 									<blockquote class = 'style4'>
+     								   <%# Server.HtmlDecode(Eval("PostSummary").ToString())%>
+									</blockquote>
+
+
+        </div>
+
+
+        <div id='all<%# Eval("PostID") %>' style='display:none;'>
+        <%# Server.HtmlDecode(Eval("PostText").ToString()) %>
+        </div>
+
+</td>
+
+       </tr></table>
 
  </ItemTemplate>
  </asp:Repeater>
- Category:
- <asp:DropDownList id="CategoryControl" runat="server" DataValueField="CategoryID" DataTextField="CategoryName"  
-       AppendDataBoundItems="True" SelectedIndex="2" />
 
-
-	  
- &nbsp; Add Category: <input type="text" id="CategoryName" name = "CategoryName">
-
-
-<br/>
-   <asp:Repeater runat="server" id="EditControl">
- 
- <ItemTemplate>
-
-
-<b>Summary</b><br/>
-<textarea name = summary cols=48 rows=6><%# Eval("PostSummary") %></textarea>
- <input type="hidden" name = "idx" value = "<%# Eval("PostID") %>">
-<br/>
-<b>Content</b><br/> <textarea name = content cols=64 rows=12><%# Server.HtmlDecode(Eval("PostText").ToString()) %></textarea>
-<br><center>
-<input type="submit" name = "btnSubmit" value = "Update This Post">
- <input type="Reset" name = "btnAbandon" value = "Abandon This Edit" onClick="location.href='/'">
-</center>
-  </ItemTemplate>
- </asp:Repeater>
-</form>
-</div>
-
-
-
-
+ <asp:Repeater runat="server" id="EditControl" />
 
  <div class="footer" align="center">
  <asp:Repeater runat="server" id="FooterControl">
@@ -136,9 +156,7 @@ function clearText(field)
  </ItemTemplate>
  </asp:Repeater>
  </div>
-
-
-            </div>
+        </div>
             
             <div class="cleaner"></div>
         </div>
