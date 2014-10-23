@@ -18,7 +18,7 @@ namespace blog {
 		//protected System.Web.UI.HtmlControls.HtmlForm EditCategory;
 		protected System.Web.UI.WebControls.Repeater EditCategoryControl;
 		protected System.Web.UI.WebControls.Repeater CategoryTableControl;
-		
+		protected System.Web.UI.WebControls.Repeater NewsControl;
 		protected System.Web.UI.WebControls.Repeater FooterControl;
 	}
 }

@@ -33,6 +33,22 @@ namespace blog
 			DataSet Categoryds = new DataSet();
 			CategoryAdapter.Fill(Categoryds, "result");
 
+			string NewsQuery = "SELECT Posts.PostID,CategoryName, PostTitle,PostSummary,PostText,PostDate " +
+				"FROM PostDetails " +
+				"LEFT JOIN Posts ON " +
+				"(Posts.PostId = PostDetails.PostID) " +
+				"LEFT JOIN Categories ON " +
+				"(Categories.CategoryID = Posts.CategoryID) ORDER BY RAND() LIMIT 3";
+
+			MySqlDataAdapter NewsAdapter = new MySqlDataAdapter(NewsQuery, dbcon);
+			DataSet Newsds = new DataSet();
+			NewsAdapter.Fill(Newsds, "result");
+
+
+
+			NewsControl.DataSource = Newsds;
+			NewsControl.DataBind();
+
 			ContentControl.DataSource = Contentds;
 			ContentControl.DataBind();
 

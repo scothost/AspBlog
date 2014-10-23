@@ -93,6 +93,18 @@ namespace blog
 			CategoryAdapter.Fill(Categoryds, "result");
 
 
+			string NewsQuery = "SELECT Posts.PostID, CategoryName, PostTitle,PostSummary,PostText,PostDate " +
+				"FROM PostDetails " +
+				"LEFT JOIN Posts ON " +
+				"(Posts.PostId = PostDetails.PostID) " +
+				"LEFT JOIN Categories ON " +
+				"(Categories.CategoryID = Posts.CategoryID) ORDER BY RAND() LIMIT 3";
+
+			MySqlDataAdapter NewsAdapter = new MySqlDataAdapter(NewsQuery, dbcon);
+			DataSet Newsds = new DataSet();
+			NewsAdapter.Fill(Newsds, "result");
+
+
 			dbcon.Close();
 			dbcon = null;
 
@@ -115,6 +127,8 @@ namespace blog
 			CategoryFilterControl.DataSource = Categoryds;
 			CategoryFilterControl.DataBind();
 
+			NewsControl.DataSource = Newsds;
+			NewsControl.DataBind();
 
 		}	
 

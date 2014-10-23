@@ -20,5 +20,6 @@ namespace blog {
 		protected System.Web.UI.WebControls.DropDownList CategoryControl;
 		protected System.Web.UI.WebControls.DropDownList CategoryFilterControl;
 		protected System.Web.UI.WebControls.Repeater CategoryEditControl;
+		protected System.Web.UI.WebControls.Repeater NewsControl;
 	}
 }

@@ -24,6 +24,8 @@ function clearText(field)
 </script>
 </head>
 <body>
+
+
 <div id="templatemo_header_wrapper">
 <!--  Free Web Templates by TemplateMo.com  -->
   <div id="templatemo_header">
@@ -136,48 +138,28 @@ function clearText(field)
         <div id="column_w300">
         
         	<div class="header_03">Random Posts</div>
-            
-            <div class="column_w300_section_01">
+        	          
+
+   <asp:Repeater runat="server" id="NewsControl">
+ <ItemTemplate>
+
+            <div class="column_w300_section_01" class = "<%=Response.Cookies ["CSSClass"].Value %>">
             	<div class="news_image_wrapper">
                 	<img src="images/templatemo_image_02.jpg" alt="image" />
                 </div>
                 
                 <div class="news_content">
-                	<div class="news_date">OCT 29, 2048</div>
-                    <div class="header_04"><a href="#">Lorem ipsum dolor sit</a></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a justo dolor.</p>
+                	<div class="news_date"><%# Eval("PostDate") %></div>
+                    <div class="header_04"><a href="#"><%# Eval("PostTitle") %></a></div>
+                    <p><%# Eval("PostSummary") %></p>
 				</div>
                                 
                 <div class="cleaner"></div>
             </div>
-            
-            <div class="column_w300_section_01 even_color">
-            	<div class="news_image_wrapper">
-                	<img src="images/templatemo_image_03.jpg" alt="image" />
-                </div>
-                
-                <div class="news_content">
-                	<div class="news_date">OCT 28, 2048</div>
-                    <div class="header_04"><a href="#">Nam dictum pellentesque</a></div>
-                    <p>Nam ultricies cursus enim, non aliquet orci lacinia ac. Etiam lobortis adipiscing.</p>
-				</div>
-                                
-                <div class="cleaner"></div>
-            </div>
-            
-            <div class="column_w300_section_01">
-            	<div class="news_image_wrapper">
-                	<img src="images/templatemo_image_04.jpg" alt="image" />
-                </div>
-                
-                <div class="news_content">
-                	<div class="news_date">OCT 27, 2048</div>
-                    <div class="header_04"><a href="#">Donec faucibus tortor</a></div>
-                    <p>Aliquam porttitor nibh in erat porttitor in accumsan dui pulvinar.</p>
-				</div>
-                                
-                <div class="cleaner"></div>
-            </div>
+</ItemTemplate>
+            </asp:Repeater>
+
+         
             
             <div class="cleaner"></div>
         </div>

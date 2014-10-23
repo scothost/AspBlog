@@ -164,7 +164,9 @@ function clearText(field)
         <div id="column_w300">
         
         	<div class="header_03">Random Posts</div>
-            
+             <div class="footer" align="center">
+ <asp:Repeater runat="server" id="NewsControl">
+ <ItemTemplate>
             <div class="column_w300_section_01">
             	<div class="news_image_wrapper">
                 	<img src="images/templatemo_image_02.jpg" alt="image" />
@@ -178,6 +180,8 @@ function clearText(field)
                                 
                 <div class="cleaner"></div>
             </div>
+</ItemTemplate>
+            </asp:Repeater>
             
             <div class="column_w300_section_01 even_color">
             	<div class="news_image_wrapper">

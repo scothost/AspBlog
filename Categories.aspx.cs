@@ -14,6 +14,22 @@ namespace blog
 		private void Page_Load()
 		{
 
+
+			HttpCookie CSSClass = new HttpCookie("CSSClass");
+			Response.Cookies ["CSSClass"].Value = "even_color";
+			Response.Cookies.Add (CSSClass);
+
+			if (Response.Cookies ["CSSClass"] != null) {
+
+				Response.Cookies ["CSSClass"].Value = "even_color";
+
+			} else {
+
+				if (Response.Cookies ["CSSClass"].ToString() == "even_color")
+					Response.Cookies ["CSSClass"].Value = "";
+
+			}
+
 			string connectionString = "Server=localhost;Database=myblog;User ID=app_user;Password=dotnetpet;Pooling=false;";
 			MySqlConnection dbcon = new MySqlConnection(connectionString);
 			dbcon.Open();
@@ -52,8 +68,23 @@ namespace blog
 			DataSet Footerds = new DataSet();
 			FooterAdapter.Fill(Footerds, "result");
 
+
+			string NewsQuery = "SELECT Posts.PostID,CategoryName, PostTitle,PostSummary,PostText,PostDate " +
+				"FROM PostDetails " +
+				"LEFT JOIN Posts ON " +
+				"(Posts.PostId = PostDetails.PostID) " +
+				"LEFT JOIN Categories ON " +
+				"(Categories.CategoryID = Posts.CategoryID) ORDER BY RAND() LIMIT 3";
+
+			MySqlDataAdapter NewsAdapter = new MySqlDataAdapter(NewsQuery, dbcon);
+			DataSet Newsds = new DataSet();
+			NewsAdapter.Fill(Newsds, "result");
+
 			CategoryTableControl.DataSource = Categoryds;
 			CategoryTableControl.DataBind();
+
+			NewsControl.DataSource = Newsds;
+			NewsControl.DataBind();
 
 			FooterControl.DataSource = Footerds;
 			FooterControl.DataBind();

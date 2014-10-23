@@ -22,7 +22,7 @@ namespace blog {
 		protected System.Web.UI.WebControls.DropDownList CategoryControl;
 		
 		protected System.Web.UI.WebControls.Repeater EditControl;
-		
+		protected System.Web.UI.WebControls.Repeater NewsControl;
 		protected System.Web.UI.WebControls.Repeater FooterControl;
 	}
 }
