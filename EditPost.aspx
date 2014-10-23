@@ -144,7 +144,7 @@ function clearText(field)
         </div>
         
         <div id="column_w300">
-        
+        <div class="header_03">Random Posts</div>
         	<!--  RANDOM POSTS -->
         	   <asp:Repeater runat="server" id="NewsControl">
  <ItemTemplate>
